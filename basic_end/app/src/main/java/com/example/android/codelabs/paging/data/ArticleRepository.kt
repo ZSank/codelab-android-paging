@@ -17,11 +17,12 @@
 package com.example.android.codelabs.paging.data
 
 import androidx.paging.PagingSource
+import javax.inject.Inject
 
 /**
  * Repository class that mimics fetching [Article] instances from an asynchronous source.
  */
-class ArticleRepository {
+class ArticleRepository @Inject constructor() {
     /**
      * [PagingSource] for [Article]
      */

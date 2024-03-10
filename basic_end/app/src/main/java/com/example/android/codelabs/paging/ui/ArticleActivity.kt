@@ -27,23 +27,21 @@ import androidx.paging.LoadState.Loading
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.codelabs.paging.Injection
 import com.example.android.codelabs.paging.databinding.ActivityArticlesBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ArticleActivity : AppCompatActivity() {
-
+    // Get the view model
+    private val viewModel: ArticleViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityArticlesBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        // Get the view model
-        val viewModel by viewModels<ArticleViewModel>(
-            factoryProducer = { Injection.provideViewModelFactory(owner = this) }
-        )
 
         val items = viewModel.items
         val articleAdapter = ArticleAdapter()

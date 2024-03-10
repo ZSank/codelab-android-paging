@@ -24,7 +24,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.android.codelabs.paging.data.Article
 import com.example.android.codelabs.paging.data.ArticleRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 private const val ITEMS_PER_PAGE = 50
 
@@ -32,7 +34,8 @@ private const val ITEMS_PER_PAGE = 50
  * ViewModel for the [ArticleActivity] screen.
  * The ViewModel works with the [ArticleRepository] to get the data.
  */
-class ArticleViewModel(
+@HiltViewModel
+class ArticleViewModel @Inject constructor(
     repository: ArticleRepository,
 ) : ViewModel() {
 
