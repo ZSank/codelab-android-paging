@@ -1,1 +1,1 @@
-I haven't updated the dependencies yet. 
+Dependency updated. Added hilt. 
